@@ -8,16 +8,39 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var redLightOpacity = 1
+    @State var yellowLightOpacity = 1
+    @State var greenLightOpacity = 1
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ZStack{
+            AnimatedBackground()
+                .ignoresSafeArea()
+                .blur(radius: 50)
+            VStack {
+                CircleView()
+                Spacer()
+                Button {
+                    switchButtonPressed()
+                } label: {
+                    Text("Switch light")
+                        .font(.title)
+                        .foregroundColor(.white)
+                        .frame(height: 44)
+                        .frame(maxWidth: .infinity)
+                        .background(Color.blue)
+                        .cornerRadius(20)
+                        .shadow(color: .black.opacity(0.5),
+                                radius: 20, x: 0.0, y: 10)
+                } .padding(70)
+            }
+            .padding()
         }
-        .padding()
     }
 }
+
+func switchButtonPressed() {
+    }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
