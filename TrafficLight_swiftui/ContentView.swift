@@ -9,15 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var redLightOpacity = 0.3
-    @State private var yellowLightOpacity = 0.3
-    @State private var greenLightOpacity = 0.3
+    @State private var redLightOpacity = 0.2
+    @State private var yellowLightOpacity = 0.2
+    @State private var greenLightOpacity = 0.2
     
     var body: some View {
         ZStack {
-            // AnimatedBackground()
-            //                .ignoresSafeArea()
-            //                .blur(radius: 50)
+             AnimatedBackground()
+                            .ignoresSafeArea()
+                            .blur(radius: 50)
             VStack {
                 TrafficLightCicles().redCircle.foregroundColor(Color(red: 255,
                                                                      green: 0,
@@ -26,11 +26,11 @@ struct ContentView: View {
                 TrafficLightCicles().redCircle.foregroundColor(Color(red: 255,
                                                                      green: 255,
                                                                      blue: 0,
-                                                                     opacity: redLightOpacity))
+                                                                     opacity: yellowLightOpacity))
                 TrafficLightCicles().redCircle.foregroundColor(Color(red: 0,
                                                                      green: 255,
                                                                      blue: 0,
-                                                                     opacity: redLightOpacity))
+                                                                     opacity: greenLightOpacity))
                 
                 Spacer()
                 Button(action: {
@@ -53,18 +53,17 @@ struct ContentView: View {
     }
 
 func switchButtonPressed() {
-    if redLightOpacity == 1.0 {
+    if redLightOpacity < 1.0 && yellowLightOpacity < 1.0 && greenLightOpacity < 1.0 {
+        redLightOpacity = 1.0
+    } else if redLightOpacity == 1.0 {
         redLightOpacity = 0.3
         yellowLightOpacity = 1.0
-        greenLightOpacity = 0.3
     } else if yellowLightOpacity == 1.0 {
-        redLightOpacity = 0.3
         yellowLightOpacity = 0.3
         greenLightOpacity = 1.0
     } else if greenLightOpacity == 1.0 {
-        redLightOpacity = 1.0
-        yellowLightOpacity = 0.3
         greenLightOpacity = 0.3
+        redLightOpacity = 1.0
     }
   }
 }

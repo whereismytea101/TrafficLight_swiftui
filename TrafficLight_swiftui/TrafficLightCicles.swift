@@ -13,7 +13,7 @@ struct TrafficLightCicles: View {
         Circle()
             .frame(width: 150, height: 150)
             .cornerRadius(75)
-            .overlay(Circle().stroke(Color.white, lineWidth: 4))
+            .overlay(Circle().stroke(Color.black, lineWidth: 4))
             .shadow(radius: 20)
             .padding(5)
     }
@@ -21,7 +21,7 @@ struct TrafficLightCicles: View {
         Circle()
             .frame(width: 150, height: 150)
             .cornerRadius(75)
-            .overlay(Circle().stroke(Color.white, lineWidth: 4))
+            .overlay(Circle().stroke(Color.black, lineWidth: 4))
             .shadow(radius: 20)
             .padding(5)
     }
@@ -29,7 +29,7 @@ struct TrafficLightCicles: View {
         Circle()
             .frame(width: 150, height: 150)
             .cornerRadius(75)
-            .overlay(Circle().stroke(Color.white, lineWidth: 4))
+            .overlay(Circle().stroke(Color.black, lineWidth: 4))
             .shadow(radius: 20)
             .padding(5)
     }
