@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var redLightOpacity = 0.4
-    @State var yellowLightOpacity = 0.4
-    @State var greenLightOpacity = 0.4
+    
+    @State private var redLightOpacity = 0.3
+    @State private var yellowLightOpacity = 0.3
+    @State private var greenLightOpacity = 0.3
     
     var body: some View {
         ZStack {
             // AnimatedBackground()
-//                .ignoresSafeArea()
-//                .blur(radius: 50)
+            //                .ignoresSafeArea()
+            //                .blur(radius: 50)
             VStack {
                 TrafficLightCicles().redCircle.foregroundColor(Color(red: 255,
                                                                      green: 0,
@@ -46,28 +47,31 @@ struct ContentView: View {
                         .shadow(color: .black.opacity(0.5),
                                 radius: 20, x: 0.0, y: 10)
                 })
-                } .padding(50)
-            }
-            .padding()
+            } .padding(50)
         }
+        .padding()
     }
 
 func switchButtonPressed() {
-//    if redLightOpacity < 1.0 && yellowLightOpacity < 1.0 && greenLightOpacity < 1.0 {
-//        redLightOpacity = 1.0
-//    } else if redLightOpacity == 1.0 {
-//        redLightOpacity = 0.001
-//        yellowLightOpacity = 1.0
-//    } else if yellowLightOpacity == 1.0 {
-//        yellowLightOpacity = 0.001
-//        greenLightOpacity = 1.0
-//    } else if greenLightOpacity == 1.0 {
-//        greenLightOpacity = 0.001
-//        redLightOpacity = 1.0
+    if redLightOpacity == 1.0 {
+        redLightOpacity = 0.3
+        yellowLightOpacity = 1.0
+        greenLightOpacity = 0.3
+    } else if yellowLightOpacity == 1.0 {
+        redLightOpacity = 0.3
+        yellowLightOpacity = 0.3
+        greenLightOpacity = 1.0
+    } else if greenLightOpacity == 1.0 {
+        redLightOpacity = 1.0
+        yellowLightOpacity = 0.3
+        greenLightOpacity = 0.3
+    }
+  }
+}
+    
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
+        }
     }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
